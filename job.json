@@ -1,0 +1,29 @@
+{
+    "jobDefinition": {
+        "name": "pytorch-style-transfer",
+        "description": "Distributed Arbitrary Style transfer (NFS)",
+        "dockerImage": "nvidia/pytorch:18.08-py3",
+        "jobType": "BATCH",
+        "command": "cd /code/style_transfer_arb/; ./run.sh",
+        "resources": {
+            "gpus": 8,
+            "systemMemory": 10,
+            "cpuCores": 1
+        },
+        "jobDataLocations": [
+            {
+                "mountPoint": "/data/COCO14",
+                "protocol": "NFSV3",
+                "sharePath": "/export/ericx.cosmos464/data/COCO14",
+                "shareHost": "dcg-zfs-04.nvidia.com"
+            },
+            {
+                "mountPoint": "/code/style_transfer_arb",
+                "protocol": "NFSV3",
+                "sharePath": "/export/ericx.cosmos464/code/style_transfer_arb",
+                "shareHost": "dcg-zfs-04.nvidia.com"
+            }
+        ],
+        "portMappings": []
+    }
+}
