@@ -7,8 +7,8 @@
         "command": "cd /code/style_transfer_arb/; ./run.sh",
         "resources": {
             "gpus": 8,
-            "systemMemory": 10,
-            "cpuCores": 1
+            "systemMemory": 100,
+            "cpuCores": 8
         },
         "jobDataLocations": [
             {

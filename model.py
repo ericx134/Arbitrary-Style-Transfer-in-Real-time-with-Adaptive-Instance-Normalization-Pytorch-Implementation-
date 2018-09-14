@@ -16,7 +16,8 @@ from utils import get_mean_std
 
 #     def forward(self, X):
 #         return self.model(X)
-decoder = nn.Sequential(
+def get_decoder():
+    decoder = nn.Sequential(
             nn.ReflectionPad2d(1), #reflection pad all boundaries 
             nn.Conv2d(512, 256, 3), #in, out, kernel
             nn.ReLU(),
@@ -47,8 +48,10 @@ decoder = nn.Sequential(
             nn.ReflectionPad2d(1),
             nn.Conv2d(64, 3, 3),
         )
+    return decoder
 
-vgg = nn.Sequential(
+def get_vgg():
+    vgg = nn.Sequential(
             nn.Conv2d(3, 3, (1, 1)),
             nn.ReflectionPad2d((1, 1, 1, 1)),
             nn.Conv2d(3, 64, (3, 3)),
@@ -103,6 +106,7 @@ vgg = nn.Sequential(
             nn.Conv2d(512, 512, (3, 3)),
             nn.ReLU()  # relu5-4
         )
+    return vgg
 # 
 
 class Net(nn.Module):
